@@ -1,32 +1,23 @@
-import time
-
 import fire
 from screen import Screen
-from yeelight import Bulb, BulbException
+from bulb_manager import BulbManager
 
-def run(monitor, bulb_ip):
+def run(monitor, *args):
     """
     Begins the tracking
 
     monitor - integer representing the monitor ID
-    bulb_ip - ip address of the bulb to change
+    args - a list of IP addresses of bulbs to control
     """
     monitor = int(monitor)
-    bulb_ip = str(bulb_ip)
+    bulb_ips = [str(bulb_ip) for bulb_ip in args]
 
-    bulb = Bulb(bulb_ip)
-    bulb.turn_on()
-
+    bm = BulbManager(bulb_ips)
     screen = Screen(monitor)
+
     while True:
         r,g,b = screen.get_dominant_colour()
-
-        try:
-            bulb.set_rgb(r,g,b)
-        except BulbException:
-            pass
-
-        time.sleep(0.1)
+        bm.update_colour(r,g,b)
 
 if __name__ == "__main__":
     fire.Fire()
