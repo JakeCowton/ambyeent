@@ -27,6 +27,14 @@ class BulbManager(object):
             p.starmap(self.change_bulb_colour, params)
 
     def change_bulb_colour(self, bulb, r, g, b):
+        """
+        Updates a given bulb with RGB
+
+        bulb - yeelight.Bulb oject
+        r - red value
+        g - green value
+        b - blue value
+        """
         try:
             bulb.set_rgb(r,g,b)
         except BulbException:
