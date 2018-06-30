@@ -7,10 +7,10 @@ name = "pypi"
 
 [packages]
 fire = "*"
-yeelight = "*"
 pillow = "*"
 mss = "*"
 numpy = "*"
+yeelight = {git = "https://github.com/JakeCowton/python-yeelight"}
 
 [requires]
 python_version = ">3.5"

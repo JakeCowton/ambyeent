@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3035e7fff16d091b82f72821c4ea911bc7b0f33a487ecd84f33cc2d9c13609c4"
+            "sha256": "2e101e6926284f63bb567fe5931b5b4397684e8ff60427f5ae01b9222bef676d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,24 +16,12 @@
         ]
     },
     "default": {
-        "enum-compat": {
-            "hashes": [
-                "sha256:939ceff18186a5762ae4db9fa7bfe017edbd03b66526b798dd8245394c8a4192"
-            ],
-            "version": "==0.0.2"
-        },
         "fire": {
             "hashes": [
                 "sha256:c299d16064ff81cbb649b65988300d4a28b71ecfb789d1fb74d99ea98ae4d2eb"
             ],
             "index": "pypi",
             "version": "==0.1.3"
-        },
-        "future": {
-            "hashes": [
-                "sha256:e39ced1ab767b5936646cedba8bcce582398233d6a627067d4c6a454c90cfedb"
-            ],
-            "version": "==0.16.0"
         },
         "mss": {
             "hashes": [
@@ -133,12 +121,9 @@
             "version": "==1.11.0"
         },
         "yeelight": {
-            "hashes": [
-                "sha256:53e28ff56b0362dffc49ca01d24aa6112231aeb2d3c995bc2191448fa6eee38e",
-                "sha256:8cdd024c13a320fc1ef224d94c45a409b3e9ff9d4aa2804fc99285b7c88d3707"
-            ],
-            "index": "pypi",
-            "version": "==0.4.1"
+            "editable": true,
+            "git": "git://github.com/JakeCowton/python-yeelight",
+            "ref": "8ae230667c9a2515cac31f045cf94f34ab3efbb0"
         }
     },
     "develop": {}
