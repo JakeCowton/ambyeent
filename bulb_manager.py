@@ -1,4 +1,5 @@
 import time
+from multiprocessing import Pool
 
 from yeelight import Bulb, BulbException
 
@@ -22,9 +23,13 @@ class BulbManager(object):
         g - green value
         b - blue value
         """
-        for bulb in self.bulbs:
-            try:
-                bulb.set_rgb(r,g,b)
-            except BulbException:
-                pass
+        params = [(bulb, r,g,b) for bulb in self.bulbs]
+        with Pool(len(self.bulbs)) as p:
+            p.starmap(self.change_bulb_colour, params)
         time.sleep(0.1)
+
+    def change_bulb_colour(self, bulb, r, g, b):
+        try:
+            bulb.set_rgb(r,g,b)
+        except BulbException:
+            pass
