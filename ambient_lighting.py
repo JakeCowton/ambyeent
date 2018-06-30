@@ -1,3 +1,5 @@
+import time
+
 import fire
 from screen import Screen
 from bulb_manager import BulbManager
@@ -18,6 +20,7 @@ def run(monitor, *args):
     while True:
         r,g,b = screen.get_dominant_colour()
         bm.update_colour(r,g,b)
+        time.sleep(0.1)
 
 if __name__ == "__main__":
     fire.Fire()
