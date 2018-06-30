@@ -11,6 +11,7 @@ class BulbManager(object):
         effect - How the colour change transitions (smooth/sudden)
         duration - How long a `smooth` transition takes (ignored if `sudden`)
         """
+        self.rgb = None
         self.bulbs = [Bulb(bulb_ip, effect=effect,
                            duration=duration, auto_on=True)
                       for bulb_ip in bulb_ips]
@@ -22,9 +23,13 @@ class BulbManager(object):
         g - green value
         b - blue value
         """
+        if self.rgb == (r,g,b):
+           return
+
         params = [(bulb, r,g,b) for bulb in self.bulbs]
         with Pool(len(self.bulbs)) as p:
             p.starmap(self.change_bulb_colour, params)
+        self.rgb = (r,g,b)
 
     def change_bulb_colour(self, bulb, r, g, b):
         """
