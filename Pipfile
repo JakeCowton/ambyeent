@@ -7,7 +7,7 @@ name = "pypi"
 
 [packages]
 fire = "*"
-pillow = "*"
+pillow = ">=7.1.0"
 mss = "*"
 numpy = "*"
 yeelight = {git = "https://github.com/JakeCowton/python-yeelight"}
